@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  f_name: MyString
+  s_name: MyString
+  l_name: MyString
+  id_chair: 1
+
+two:
+  f_name: MyString
+  s_name: MyString
+  l_name: MyString
+  id_chair: 1

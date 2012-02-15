@@ -1,0 +1,22 @@
+%h1 Список кафедр
+
+%table
+  %tr
+    %td Факультет
+    %td Название кафедры(номер)
+    
+  - @chairs.each do |chair|
+    %tr
+      %td= chair.faculty.name
+      %td
+        = chair.name
+        \(
+        = chair.number
+        \)
+      -if @current_user!= nil
+        %td= link_to 'Редактировать', edit_chair_path(chair)
+        %td= link_to 'Удалить', chair, :confirm => 'Are you sure?', :method => :delete
+
+%br
+-if @current_user!= nil
+  = link_to 'Скомпилировать кафедру', new_chair_path

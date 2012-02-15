@@ -1,0 +1,18 @@
+%h1 Список преподавателей
+
+
+- @teachers.each do |teacher|
+  %p
+    %b 
+      =link_to teacher.l_name+" "+teacher.f_name+" "+teacher.s_name, teacher
+    %b 
+      = link_to teacher.f_name,teacher
+    %b 
+      = link_to teacher.s_name,teacher
+    -if @current_user!= nil
+      \|
+      %b
+        = link_to 'Удалить', teacher, :confirm => 'Are you sure?', :method => :delete
+
+-if @current_user!= nil
+  = link_to 'Создать нового преподавателя', new_teacher_path

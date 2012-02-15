@@ -1,0 +1,5 @@
+%h1 Создать новго студента
+
+= render 'form'
+
+= link_to 'Назад', students_path

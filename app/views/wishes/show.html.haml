@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Id teacher:
+  = @wish.user_id
+%p
+  %b Day:
+  = @wish.day
+%p
+  %b Lesson:
+  = @wish.lesson
+
+= link_to 'Edit', edit_wish_path(@wish)
+\|
+= link_to 'Back', wishes_path

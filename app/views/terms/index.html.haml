@@ -1,0 +1,15 @@
+%h1 Список семестров
+
+%table
+  - @terms.each do |term|
+    %tr
+      %td= term.name
+      %td= term.short_name
+      %td= term.current
+      -if @current_user!= nil
+        %td= link_to 'Изменить', edit_term_path(term)
+        %td= link_to 'Удалить', term, :confirm => 'Вы уверены?', :method => :delete
+
+%br
+-if @current_user!= nil
+  = link_to 'Создать новый семетр', new_term_path

@@ -1,0 +1,24 @@
+%h1 Студент
+
+%p#notice= notice
+
+%p
+  %b Фамилия:
+  = @student.l_name
+%p
+  %b Имя:
+  = @student.f_name
+%p
+  %b Отчество:
+  = @student.s_name
+%p
+  %b Группа:
+  = @student.group.number
+
+
+-if @current_user!= nil
+  = link_to 'Редактрировать', edit_student_path(@student)
+  \|
+= link_to 'К списку студентов', students_path
+\|
+= link_to 'К списку групп', groups_path

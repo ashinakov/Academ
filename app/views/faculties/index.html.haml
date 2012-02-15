@@ -1,0 +1,19 @@
+%h1 Список факультетов
+
+%table
+  %tr    
+  - @faculties.each do |faculty|
+   
+    %tr
+      %td
+        = link_to faculty.name,faculty
+        \(
+        = faculty.short_name
+        \)
+      -if @current_user!= nil
+        %td= link_to 'Переименовать', edit_faculty_path(faculty)
+        %td= link_to 'Удалить', faculty, :confirm => 'Are you sure?', :method => :delete
+
+%br
+-if @current_user!= nil
+  = link_to 'Скомпилировать факультет', new_faculty_path

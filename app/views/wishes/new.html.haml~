@@ -1,0 +1,5 @@
+%h1 Новое пожелание
+
+= render 'form'
+
+= link_to 'Название', wishes_path

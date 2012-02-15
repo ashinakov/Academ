@@ -1,0 +1,15 @@
+%h1
+  Список преподавателей кафедры
+  \(
+  =@chair.name
+  \)
+%dl
+  %br
+  -@ch_teachers.map do |ch|
+    %ul
+      %li
+        %b=link_to ch.l_name+" "+ch.f_name, ch
+        
+        %b= ch.s_name
+= link_to 'Назад', faculties_path
+

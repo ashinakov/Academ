@@ -1,0 +1,25 @@
+%h1 Список пожеланий преподавателей
+
+%table
+  %tr
+    %td Преподаватель
+    %td День недели
+    %td Номер пары
+    %td Семестр
+    -if @current_user!= nil
+      %td
+      %td
+
+  - @wishes.each do |wish|
+    %tr
+      %td= wish.user_id
+      %td= wish.day
+      %td= wish.lesson
+      %td= wish.term.short_name
+      -if @current_user!= nil
+        %td= link_to 'Редактировать', edit_wish_path(wish)
+        %td= link_to 'Удалить', wish, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'Создать новое пожелание', new_wish_path

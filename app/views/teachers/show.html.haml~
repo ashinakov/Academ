@@ -1,0 +1,22 @@
+%h1 Преподаватель
+  
+%p#notice= notice
+
+%p 
+  %b Фамилия:
+  = @teacher.l_name
+%p
+  %b Имя:
+  = @teacher.f_name
+%p
+  %b Отчество:
+  = @teacher.s_name
+%p
+  %b Кафедра:
+  = @teacher.chair.name
+
+
+-if @current_user!= nil
+  = link_to 'Редактировать информацию преподавателя', edit_teacher_path(@teacher)
+  \|
+  = link_to 'Назад', teachers_path

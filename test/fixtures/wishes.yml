@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_teacher: 1
+  day: 1
+  lesson: 1
+
+two:
+  id_teacher: 1
+  day: 1
+  lesson: 1

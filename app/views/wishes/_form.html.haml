@@ -1,0 +1,19 @@
+= form_for @wish do |f|
+  -if @wish.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@wish.errors.count, "error")} prohibited this wish from being saved:"
+      %ul
+        - @wish.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    День недели:
+    = f.select :day,1..6
+  .field
+    Номер пары:
+    = f.select :lesson,1..7
+  .field
+    Семестр:
+    = f.select :term_id,Term.all.map{|t| [t.name,t.id]}
+  .actions
+    = f.submit 'Сохранить'

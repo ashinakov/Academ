@@ -1,0 +1,12 @@
+class Group < ActiveRecord::Base
+  belongs_to :faculty
+  has_many :students
+  
+  
+
+  validates :number, :presence => true, 
+                         
+                        :length => {:in=>4...6},
+                        :uniqueness => true
+  
+end

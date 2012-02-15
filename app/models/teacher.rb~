@@ -1,0 +1,19 @@
+class Teacher < ActiveRecord::Base
+  belongs_to :chair
+  has_many :wishes
+  has_many :users, :dependent => :destroy
+  accepts_nested_attributes_for :users, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+  
+
+  validates :f_name, :presence => true, 
+                         
+                        :length=>{:minimum => 2}
+  
+  validates :s_name, :presence => true,
+                         
+                         :length=>{:minimum => 2}
+
+  validates :l_name, :presence => true,
+                          
+                         :length=>{:minimum => 2}
+end

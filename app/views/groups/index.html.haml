@@ -1,0 +1,17 @@
+%h1 Список групп
+
+%table
+  - @groups.each do |group|
+    %tr
+      %td 
+        № 
+        = group.number
+      
+      %td= link_to 'Список студентов', group
+      -if @current_user!= nil
+        %td= link_to 'Редактировать', edit_group_path(group)
+        %td= link_to 'Удалить', group, :confirm => 'Are you sure?', :method => :delete
+
+%br
+-if @current_user!= nil
+  = link_to 'Создать группу', new_group_path

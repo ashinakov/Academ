@@ -1,0 +1,15 @@
+%h1 Список студентов
+
+- @students.each do |student|
+  %p
+    %b 
+      %b=link_to student.l_name+" "+student.f_name+" "+student.s_name, student
+
+    -if @current_user!= nil
+      \|
+      %b
+        = link_to 'Удалить', student, :confirm => 'Are you sure?', :method => :delete
+%br
+
+-if @current_user!= nil
+  = link_to 'Создать нового студента', new_student_path

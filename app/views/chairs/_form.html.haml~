@@ -1,0 +1,21 @@
+= form_for @chair do |f|
+  -if @chair.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@chair.errors.count, "error")} prohibited this chair from being saved:"
+      %ul
+        - @chair.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    Выбрать факультет:
+    = f.select :faculty_id,Faculty.all.map{|fa| [fa.short_name,fa.id]}
+  .field
+    Номер кафедры:
+    %br
+    = f.text_field :number
+  .field
+    Название кафедры:
+    %br
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,25 @@
+= form_for @student do |f|
+  -if @student.errors.any?
+    #error_explanation
+      %h2= "Произошла ошибка при сохранении"
+      %ul
+        - @student.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    Фамилия
+    %br
+    = f.text_field :l_name
+  .field
+    Имя
+    %br
+    = f.text_field :f_name
+  .field
+    Отчество
+    %br
+    = f.text_field :s_name
+  .field
+    Группа:
+    = f.select :group_id,Group.all.map{|g| [g.number,g.id]}
+  .actions
+    = f.submit 'Сохранить'
